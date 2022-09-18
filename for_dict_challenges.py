@@ -12,8 +12,28 @@ students = [
     {'first_name': 'Маша'},
     {'first_name': 'Петя'},
 ]
-# ???
+my_list = []   #список с повторениями
+my_list2 = []  #список без повторений
+for i in range(len(students)):
+    for value in students[i].values():
+        my_list.append(value)
 
+for i in range(len(my_list)):
+    if my_list[i] in my_list2:
+        continue
+    else:
+        my_list2.append(my_list[i])
+
+counter = 0
+for j in range(len(my_list2)):
+    for k in range(len(my_list)):
+        if my_list2[j] == my_list[k]:
+            counter += 1
+        else:
+            continue
+    print(my_list2[j], ':', counter)
+    counter = 0
+        
 
 # Задание 2
 # Дан список учеников, нужно вывести самое часто повторящееся имя
@@ -26,7 +46,28 @@ students = [
     {'first_name': 'Маша'},
     {'first_name': 'Оля'},
 ]
-# ???
+names = []   
+
+for i in range(len(students)):
+    for value in students[i].values():
+        names.append(value)
+print(names)
+
+max_name = []
+counter = 0
+current_counter = 0
+for j in range(len(names)):
+    for k in range(len(names)):
+        if names[j] == names[k]:
+            current_counter += 1
+        
+    if current_counter > counter:
+        counter = current_counter
+        max_name = names[j]
+        
+    current_counter = 0
+
+print('Самое частое имя в классе', max_name)
 
 
 # Задание 3
@@ -44,14 +85,22 @@ school_students = [
         {'first_name': 'Маша'},
         {'first_name': 'Маша'},
         {'first_name': 'Оля'},
-    ],[  # это – третий класс
+    ],
+    [  # это – третий класс
         {'first_name': 'Женя'},
         {'first_name': 'Петя'},
         {'first_name': 'Женя'},
         {'first_name': 'Саша'},
     ],
 ]
-# ???
+
+first_class = []
+second_class = []
+third_class = []
+
+for i in range(len(school_students)):
+    for value in school_students[i][].values():
+        my_list.append(value)
 
 
 # Задание 4
