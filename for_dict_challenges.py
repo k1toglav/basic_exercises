@@ -12,33 +12,20 @@ students = [
     {'first_name': 'Маша'},
     {'first_name': 'Петя'},
 ]
-my_list = []   #список с повторениями
-my_list2 = []  #список без повторений
-for i in range(len(students)):
-    for value in students[i].values():
-        my_list.append(value)
 
-for i in range(len(my_list)):
-    if my_list[i] in my_list2:
-        continue
+names = {}
+
+for student in students:
+    if student['first_name'] not in names:
+        names[student['first_name']] = 1
     else:
-        my_list2.append(my_list[i])
-
-counter = 0
-for j in range(len(my_list2)):
-    for k in range(len(my_list)):
-        if my_list2[j] == my_list[k]:
-            counter += 1
-        else:
-            continue
-    print(my_list2[j], ':', counter)
-    counter = 0
-        
+        names[student['first_name']] += 1
 
 # Задание 2
 # Дан список учеников, нужно вывести самое часто повторящееся имя
 # Пример вывода:
 # Самое частое имя среди учеников: Маша
+
 students = [
     {'first_name': 'Вася'},
     {'first_name': 'Петя'},
@@ -46,28 +33,12 @@ students = [
     {'first_name': 'Маша'},
     {'first_name': 'Оля'},
 ]
-names = []   
+names_students = {}
 
-for i in range(len(students)):
-    for value in students[i].values():
-        names.append(value)
-print(names)
+for names in students:
+    names_students[names['first_name']] = names_students.get(names['first_name'], 0) + 1
 
-max_name = []
-counter = 0
-current_counter = 0
-for j in range(len(names)):
-    for k in range(len(names)):
-        if names[j] == names[k]:
-            current_counter += 1
-        
-    if current_counter > counter:
-        counter = current_counter
-        max_name = names[j]
-        
-    current_counter = 0
-
-print('Самое частое имя в классе', max_name)
+print('Самое частое имя среди учеников:' , max(names_students, key=names_students.get))
 
 
 # Задание 3
@@ -94,13 +65,12 @@ school_students = [
     ],
 ]
 
-first_class = []
-second_class = []
-third_class = []
-
+class_names = {}
 for i in range(len(school_students)):
-    for value in school_students[i][].values():
-        my_list.append(value)
+    for students in school_students[i]:
+        class_names[students['first_name']] = class_names.get(students['first_name'], 0) + 1
+    print('Самое частое имя среди учеников', i+1, 'класса:', max(class_names, key=class_names.get))
+    class_names.clear()
 
 
 # Задание 4
@@ -121,7 +91,19 @@ is_male = {
     'Миша': True,
     'Даша': False,
 }
-# ???
+
+for student in school: 
+	men=0
+	women=0
+	for i in student['students']: 
+		if is_male.get(i['first_name']) == False: 
+			women += 1
+		if is_male.get(i['first_name']) == True: 
+			men += 1
+	print(f"{women} девочек и {men} мальчиков")
+	
+	
+
 
 
 # Задание 5
@@ -140,5 +122,5 @@ is_male = {
     'Олег': True,
     'Миша': True,
 }
-# ???
+
 
