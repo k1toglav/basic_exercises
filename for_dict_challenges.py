@@ -101,7 +101,7 @@ for student in school:
 		if is_male.get(i['first_name']) == True: 
 			men += 1
 	print(f"{women} девочек и {men} мальчиков")
-	
+	   
 	
 
 
@@ -123,4 +123,22 @@ is_male = {
     'Миша': True,
 }
 
+my_list = []
 
+for class_ in school:
+    men = 0
+    women = 0
+    for students in class_:
+        if is_male.get(class_['students']) == False:
+            women += 1
+        else:
+            men += 1
+    my_list.append(dict(class_name = class_['class'], men = men, women = women))
+print(my_list)
+
+if my_list[0]['men'] > my_list[1]['men']:
+    print(my_list[0]['class_name'], 'больше мальчиков')
+    print(my_list[1]['class_name'], 'больше девочек')
+else:
+    print(my_list[0]['class_name'], 'больше девочек')
+    print(my_list[1]['class_name'], 'больше мальчиков')
